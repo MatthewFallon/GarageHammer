@@ -1,0 +1,258 @@
+
+/*
+    site colors:
+    garagehammer yellow: #ecb81e
+    garagehammer red: #721212
+    garagehammer brown: #634f4f
+*/
+
+body {
+    background-color: #721212;
+    margin: 0;
+    font-size: 13pt;
+}
+.container {
+    background-color: #d6d0bd;
+    width: 90%;
+    margin: 0 auto 0 auto;
+    padding: 0;
+}
+
+.container .banner{
+    width: 100%;
+    height: 200px;
+    background-color: #ecb81e;
+    display: grid;
+    grid-template-areas:
+                "logo"
+                "unsplash";
+    background-image: url("../images/jack-b-hRwrvvZHk70-unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+}
+.container .banner a:nth-child(1) {
+    grid-area: logo;
+    align-self: center;
+    justify-self: center;
+    margin: 0 0 0 0;
+}
+.container .banner img {
+    width: 300px;
+    display: inline-block;
+    background-color: rgba(208, 214, 211, 0.65);
+    border-radius: 50px;
+    padding: 0 10px 10px 0;
+}
+.container .banner a:nth-child(2) {
+    grid-area: unsplash;
+    align-self: end;
+    justify-self: end;
+}
+
+main > section > header, main > article > header {
+    word-break: break-word;
+}
+
+main > article, main > section {
+    padding: 1em 10%;
+}
+main > section img, main > article img {
+    width: 50%;
+    display: block;
+    margin: 0 3%;
+}
+main > section h2:first-child, main > article h2:first-child {
+    padding-top: 0;
+}
+main > section h2, main > article h2 {
+    padding-top: 2rem;
+}
+
+/*general settings to remove padding around menu lists*/
+nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+/*Removes list-item styling from header nav */
+header nav {
+    padding-left: 2%;
+    background: linear-gradient(white 0%, silver 100%);
+    transition: left ease-in 0s, padding ease-in 0s;
+    left: 7%;
+}
+header nav.sticky {
+    padding-left: 7%;
+    padding-right: 7%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 86%;
+    transition: left ease-in 200ms, padding ease-in 200ms;
+}
+header nav ul {
+    display: flex;
+    flex-flow: wrap;
+    position: relative;
+    justify-content: space-evenly;
+    padding-bottom: .5rem;
+}
+header nav li {
+    display: inline;
+    border: black solid 1px;
+    border-radius: 25px;
+    margin-top: .5rem;
+}
+header nav li a {
+    padding: .5rem 1rem;
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+}
+header nav li ul {
+    display: block;
+    visibility: hidden;
+    position: absolute;
+    opacity: 0;
+    transition: visibility 200ms 300ms linear, opacity 200ms 300ms linear;
+    background-color: #4a4a4a;
+    padding: 0;
+    border-radius: 0;
+    margin-top: .5rem;
+    margin-left: .25rem;
+}
+header nav li ul li {
+    background-color: #721212;
+    padding: .25rem 0;
+    margin: .5rem 0;
+    display: block;
+    border: none;
+    border-radius: 0;
+    transition: background-color 500ms ease;
+}
+header nav li ul li a{
+     margin: 0;
+     padding: .25rem 1rem;
+     color: white;
+     text-decoration: none;
+ }
+header nav li:hover ul {
+    visibility: visible;
+    opacity: 1;
+    transition: none;
+}
+header nav li:hover ul li:hover {
+    background-color: #ecb81e;
+}
+
+
+/*Styling for side nav within */
+main nav {
+    width: 90%;
+    margin: 0 auto 0 auto;
+}
+main nav li {
+    display: block;
+    padding: 0;
+    margin: .5rem 0 .5rem 10px;
+    border-top: black solid 1px;
+}
+main nav h2.image-list + ul li {
+    display: inline-grid;
+    border: none;
+    width: 30%;
+    align-content: center;
+}
+main nav h2.image-list + ul li a{
+}
+main nav h2.image-list + ul li img {
+    width: 100%;
+    background-color: black;
+}
+main a{
+    color: #4a4a4a;
+    transition: color ease 200ms;
+    text-decoration: none;
+}
+main a:hover {
+    color: #721212;
+}
+
+
+
+footer {
+    text-align: center;
+    margin-bottom: 0;
+    padding-bottom: 10px;
+}
+
+
+
+@media (min-width: 780px) {
+    .container {
+        width: 80%;
+        margin: 0 auto 0 auto;
+    }
+
+    .container .banner {
+        grid-template-areas:
+                "logo ......."
+                "logo unsplash";
+    }
+    .container .banner a:nth-child(1) {
+        margin: 0 0 0 30px;
+        justify-self: start;
+    }
+    .container .banner img {
+        width: 500px;
+    }
+    header nav.sticky {
+        padding-left: 12%;
+        padding-right: 12%;
+        width: 76%;
+    }
+    header nav ul {
+        justify-content: start;
+        padding: 0;
+        margin: 0;
+    }
+    header nav li {
+        margin: 0;
+        padding: 0;
+        border: none;
+        border-radius: 0;
+        border-right: black solid 1px;
+    }
+    header nav li:first-child {
+        border-left: black solid 1px;
+    }
+
+    main {
+        display: grid;
+        grid-template-areas: "sect ..." "sect nav";
+        grid-template-rows: 6em auto;
+        grid-template-columns: 3fr 1fr;
+    }
+
+    main > nav {
+        grid-area: nav;
+        justify-content: center;
+        margin: 0;
+    }
+
+    main > article, main > section {
+        grid-area: sect;
+        display: grid;
+        grid-template-areas: "head" "body";
+        grid-template-rows: auto;
+        padding: 3em 10%;
+    }
+
+    main > section > header, main > article > header {
+        grid-area: head;
+    }
+
+    main > section > section, main > article > section {
+        grid-area: body;
+    }
+}
