@@ -147,11 +147,6 @@ header nav li ul li a{
      color: white;
      text-decoration: none;
  }
-header nav li:hover ul, header nav li input:checked ~ ul {
-    visibility: visible;
-    opacity: 1;
-    transition: none;
-}
 header nav li:hover ul li:hover {
     background-color: #ecb81e;
 }
@@ -277,6 +272,14 @@ footer {
     }
 }
 
+@media (hover: hover) {
+    header nav li:hover ul {
+        visibility: visible;
+        opacity: 1;
+        transition: none;
+    }
+}
+
 @media (hover: none) {
     header nav label {
         display: inline-block;
@@ -286,6 +289,11 @@ footer {
         margin: .25rem 1rem .25rem -.5rem;
         padding: .15rem .5rem .25rem .5rem;
         transition: transform ease 1s;
+    }
+    header nav li input:checked ~ ul {
+        visibility: visible;
+        opacity: 1;
+        transition: none;
     }
     header nav input:checked ~ label {
         transform: rotateX(180deg);
