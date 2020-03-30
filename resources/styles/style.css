@@ -6,10 +6,14 @@
     garagehammer brown: #634f4f
 */
 
+/*
+    Settings to create a surrounding background effect and controlled width on all page content.
+*/
 body {
     background-color: #721212;
     margin: 0;
-    font-size: 13pt;
+    font-size: 1.05rem;
+    font-family: sans-serif;
 }
 .container {
     background-color: #d6d0bd;
@@ -18,6 +22,9 @@ body {
     padding: 0;
 }
 
+/*
+    Creating a banner with background image and logo in front
+*/
 .container .banner{
     width: 100%;
     height: 200px;
@@ -30,6 +37,7 @@ body {
     background-size: cover;
     background-position: center;
 }
+/*Styling for logo image*/
 .container .banner a:nth-child(1) {
     grid-area: logo;
     align-self: center;
@@ -37,21 +45,20 @@ body {
     margin: 0 0 0 0;
 }
 .container .banner img {
-    width: 300px;
-    display: inline-block;
-    background-color: rgba(208, 214, 211, 0.65);
-    border-radius: 50px;
-    padding: 0 10px 10px 0;
-}
+     width: 300px;
+     display: inline-block;
+     background-color: rgba(208, 214, 211, 0.65);
+     border-radius: 50px;
+     padding: 0 10px 10px 0;
+ }
+/*Styling for unsplash logo to provide attribution for banner image.*/
 .container .banner a:nth-child(2) {
     grid-area: unsplash;
     align-self: end;
     justify-self: end;
 }
 
-main > section > header, main > article > header {
-    word-break: break-word;
-}
+
 
 main > article, main > section {
     padding: 1em 10%;
@@ -88,7 +95,11 @@ header nav.sticky {
     top: 0;
     left: 0;
     width: 86%;
-    transition: left ease-in 200ms, padding ease-in 200ms;
+    transition: left linear 200ms, padding linear 200ms;
+}
+header nav input {
+    visibility: hidden;
+    display: none;
 }
 header nav ul {
     display: flex;
@@ -136,7 +147,7 @@ header nav li ul li a{
      color: white;
      text-decoration: none;
  }
-header nav li:hover ul {
+header nav li:hover ul, header nav li input:checked ~ ul {
     visibility: visible;
     opacity: 1;
     transition: none;
@@ -158,9 +169,9 @@ main nav li {
     border-top: black solid 1px;
 }
 main nav h2.image-list + ul li {
-    display: inline-grid;
+    display: inline-block;
     border: none;
-    width: 30%;
+    width: 25%;
     align-content: center;
 }
 main nav h2.image-list + ul li a{
@@ -170,6 +181,7 @@ main nav h2.image-list + ul li img {
     background-color: black;
 }
 main a{
+    font-size: 1.2rem;
     color: #4a4a4a;
     transition: color ease 200ms;
     text-decoration: none;
@@ -181,12 +193,20 @@ main a:hover {
 
 
 footer {
+    width: 70%;
     text-align: center;
-    margin-bottom: 0;
+    margin: 0 auto;
     padding-bottom: 10px;
+    font-size: small;
+    font-weight: bold;
 }
 
 
+
+/*  Ipad Landscape width and above to target wider screens.
+    All settings above for non css3 compliant browsers and phones.
+    Settings below use grid layout form.
+ */
 
 @media (min-width: 780px) {
     .container {
@@ -254,5 +274,29 @@ footer {
 
     main > section > section, main > article > section {
         grid-area: body;
+    }
+}
+
+@media (hover: none) {
+    header nav label {
+        display: inline-block;
+        position: relative;
+        border: 1px solid black;
+        border-radius: 100%;
+        margin: .25rem 1rem .25rem -.5rem;
+        padding: .15rem .5rem .25rem .5rem;
+        transition: transform ease 1s;
+    }
+    header nav input:checked ~ label {
+        transform: rotateX(180deg);
+    }
+    header nav input {
+        opacity: 0;
+        position: absolute;
+        top: -2rem;
+        left: -2rem;
+        visibility: visible;
+        display: inline-block;
+        cursor: pointer;
     }
 }
