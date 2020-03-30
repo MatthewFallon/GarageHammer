@@ -6,6 +6,11 @@
     garagehammer brown: #634f4f
 */
 
+@font-face {
+    font-family: um;
+    src: url("../fonts/um.woff2");
+}
+
 /*
     Settings to create a surrounding background effect and controlled width on all page content.
 */
@@ -63,6 +68,10 @@ body {
 main > article, main > section {
     padding: 1em 10%;
 }
+main header {
+    font-size: 1.5rem;
+    font-family: um, serif;
+}
 main > section img, main > article img {
     width: 50%;
     display: block;
@@ -119,6 +128,13 @@ header nav li a {
     display: inline-block;
     text-decoration: none;
     color: black;
+    border-radius: 25px;
+}
+header nav > ul > li > a:hover {
+    background-color: #cdcdcd;
+}
+header nav > ul > li > a:active {
+    background-color: #a8a8a8;
 }
 header nav li ul {
     display: block;
@@ -133,8 +149,7 @@ header nav li ul {
     margin-left: .25rem;
 }
 header nav li ul li {
-    background-color: #721212;
-    padding: .25rem 0;
+    padding: 0;
     margin: .5rem 0;
     display: block;
     border: none;
@@ -142,13 +157,18 @@ header nav li ul li {
     transition: background-color 500ms ease;
 }
 header nav li ul li a{
+    background-color: #721212;
+    border-radius: 0;
      margin: 0;
-     padding: .25rem 1rem;
+     padding: .5rem 1rem;
      color: white;
      text-decoration: none;
  }
 header nav li:hover ul li:hover {
     background-color: #ecb81e;
+}
+header nav li:hover ul li:hover a:active {
+    background-color: #b4881c;
 }
 
 
@@ -159,9 +179,13 @@ main nav {
 }
 main nav li {
     display: block;
-    padding: 0;
+    padding: .25rem 0 0 0;
     margin: .5rem 0 .5rem 10px;
     border-top: black solid 1px;
+}
+main nav li:last-child {
+    padding: .25rem 0;
+    border-bottom: black solid 1px;
 }
 main nav h2.image-list + ul li {
     display: inline-block;
@@ -181,8 +205,20 @@ main a{
     transition: color ease 200ms;
     text-decoration: none;
 }
-main a:hover {
+main a:hover, main a:active {
     color: #721212;
+}
+main p {
+    padding-bottom: 1rem;
+}
+main p + a {
+    margin: 2rem 1rem;
+    padding: .5rem 1rem;
+    border: 1px solid black;
+    transition: background-color ease 200ms;
+}
+main p + a:hover, main p + a:active {
+    background-color: #cdcdcd;
 }
 
 
@@ -191,6 +227,7 @@ footer {
     width: 70%;
     text-align: center;
     margin: 0 auto;
+    padding-top: 1rem;
     padding-bottom: 10px;
     font-size: small;
     font-weight: bold;
@@ -230,6 +267,9 @@ footer {
         justify-content: start;
         padding: 0;
         margin: 0;
+    }
+    header nav > ul > li > a {
+        border-radius: 0;
     }
     header nav li {
         margin: 0;
@@ -273,6 +313,10 @@ footer {
 }
 
 @media (hover: hover) {
+    header nav label {
+        visibility: hidden;
+        display: none;
+    }
     header nav li:hover ul {
         visibility: visible;
         opacity: 1;
@@ -288,7 +332,7 @@ footer {
         border-radius: 100%;
         margin: .25rem 1rem .25rem -.5rem;
         padding: .15rem .5rem .25rem .5rem;
-        transition: transform ease 1s;
+        transition: transform ease 300ms;
     }
     header nav li input:checked ~ ul {
         visibility: visible;
