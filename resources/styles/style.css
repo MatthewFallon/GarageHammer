@@ -64,13 +64,16 @@ body {
 }
 
 
-
+main {
+ padding: 0 10%;
+}
 main > article, main > section {
-    padding: 1em 10%;
+    padding: 1em 0;
 }
 main header {
     font-size: 1.5rem;
     font-family: GarageHammer, serif;
+    text-shadow: #ffffff -5px -5px 2px;
 }
 main > section img, main > article img {
     width: 50%;
@@ -141,6 +144,7 @@ header nav li ul {
     visibility: hidden;
     position: absolute;
     opacity: 0;
+    z-index: 1;
     transition: visibility 200ms 300ms linear, opacity 200ms 300ms linear;
     background-color: #4a4a4a;
     padding: 0;
@@ -149,17 +153,21 @@ header nav li ul {
     margin-left: .25rem;
 }
 header nav li ul li {
+    position: relative;
     padding: 0;
-    margin: .5rem 0;
+    margin: .5rem 1rem;
     display: block;
     border: none;
     border-radius: 0;
     transition: background-color 500ms ease;
 }
 header nav li ul li a{
+    position: relative;
     background-color: #721212;
+    display: inline-block;
+    width: 100%;
     border-radius: 0;
-     margin: 0;
+     margin: 0 -1rem;
      padding: .5rem 1rem;
      color: white;
      text-decoration: none;
@@ -287,12 +295,13 @@ footer {
         grid-template-areas: "sect ..." "sect nav";
         grid-template-rows: 6em auto;
         grid-template-columns: 3fr 1fr;
+        padding: 0 5%;
     }
 
     main > nav {
         grid-area: nav;
         justify-content: center;
-        margin: 0;
+        margin: 0 6%;
     }
 
     main > article, main > section {
@@ -300,7 +309,8 @@ footer {
         display: grid;
         grid-template-areas: "head" "body";
         grid-template-rows: auto;
-        padding: 3em 10%;
+        padding: 3em 0;
+        margin: 0 6%;
     }
 
     main > section > header, main > article > header {

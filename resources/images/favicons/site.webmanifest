@@ -1,0 +1,17 @@
+{
+  "name": "GarageHammer",
+  "short_name": "GarageHammer",
+  "background_color": "#721212",
+  "description": "The podcast site for Garagehammer",
+  "display": "browser",
+  "theme_color": "#721212",
+  "icons": [{
+    "src": "resources/images/favicons/favicon-192x192.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  }, {
+    "src": "resources/images/favicons/favicon-512x512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }]
+}
